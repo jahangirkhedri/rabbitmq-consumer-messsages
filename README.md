@@ -6,14 +6,14 @@ This is a test project that consume some messages from Rabbitmq and send them by
 
 ## usage
 - `docker-compose up -d`
-- `composer update`
-- `php artisan migrate`
+- `docker run --rm -v $(pwd):/app composer update`
+- `docker-compose exec app php artisan migrate`
 - use this command for publish some messages on rabbitmq :
- ` php artisan publish:message` some messages are invalid to fail our Job
+ `docker-compose exec app  php artisan publish:message` some messages are invalid to fail our Job
 - consume messages with this command :
- `php artisan rabbitmq:consume`
+ `docker-compose exec app php artisan rabbitmq:consume`
 - run tests with this command :
-  `php artisan test`
+  `docker-compose exec app php artisan test`
 
 ---
 ## codes
