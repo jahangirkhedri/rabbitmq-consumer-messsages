@@ -28,5 +28,7 @@ class PublishMessages extends Command
         ];
         foreach ($messages as $message)
             Queue::connection('rabbitmq')->pushRaw(json_encode($message), 'messages');
+
+        echo "messages published now." . PHP_EOL;
     }
 }
